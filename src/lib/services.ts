@@ -24,24 +24,14 @@ export const authService = {
 
   me: () => api.get("/auth/me"),
 
-  /**
-   * Placeholder — endpoint `PATCH /auth/me` does not exist yet on backend.
-   * Will return a clear error until the backend implements this.
-   */
   updateProfile: (_payload: { username: string; email: string }) =>
-    Promise.reject(new Error("Profile editing is not yet available. This feature is coming soon.")),
+    api.patch("/auth/me", _payload),
 
-  /**
-   * Placeholder — endpoint `POST /auth/change-password` does not exist yet on backend.
-   */
   changePassword: (_payload: { currentPassword: string; newPassword: string }) =>
-    Promise.reject(new Error("Password change is not yet available. This feature is coming soon.")),
+    api.post("/auth/change-password", _payload),
 
-  /**
-   * Placeholder — endpoint `DELETE /auth/me` does not exist yet on backend.
-   */
   deleteMe: () =>
-    Promise.reject(new Error("Account deletion is not yet available. This feature is coming soon.")),
+    api.delete("/auth/me"),
 
   logoutAll: () => api.post("/auth/logout-all"),
 
